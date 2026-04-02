@@ -28,6 +28,12 @@
     },
     "plugins": [
       "expo-secure-store"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "337bc572-23c4-4fed-8734-d91e9547f207"
+      }
+    },
+    "owner": "legal-chain"
   }
 }
