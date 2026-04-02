@@ -1,33 +1,68 @@
 {
   "expo": {
-    "name": "LegalChainMobile",
+    "name": "Legal Chain",
     "slug": "LegalChainMobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1a1a1a"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.legalchain.mobile",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Legal Chain uses your camera to scan documents.",
+        "NSPhotoLibraryUsageDescription": "Legal Chain accesses your photo library to import documents.",
+        "NSFaceIDUsageDescription": "Legal Chain uses Face ID to securely sign documents."
+      }
     },
     "android": {
+      "package": "com.legalchain.mobile",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#1a1a1a",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-secure-store"
-    ]
+      "expo-secure-store",
+      "react-native-document-scanner-plugin",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Legal Chain uses your camera to scan documents."
+        }
+      ],
+      [
+        "expo-document-picker",
+        {
+          "iCloudContainerEnvironment": "Production"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "337bc572-23c4-4fed-8734-d91e9547f207"
+      }
+    },
+    "owner": "legal-chain"
   }
 }
